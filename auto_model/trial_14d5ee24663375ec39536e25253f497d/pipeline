@@ -1,0 +1,1 @@
+{"inputs": [[]], "outputs": [[{"class_name": "AddOneDimension", "config": {}}, {"class_name": "OneHotEncoder", "config": {"labels": ["\ub300\uccb4\ub85c \uc0ac\uc2e4", "\ub300\uccb4\ub85c \uc0ac\uc2e4 \uc544\ub2d8", "\uc0ac\uc2e4", "\uc804\ud600 \uc0ac\uc2e4 \uc544\ub2d8", "\uc808\ubc18\uc758 \uc0ac\uc2e4", "\ud310\ub2e8\uc720\ubcf4"]}}]]}
