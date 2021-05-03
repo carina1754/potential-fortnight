@@ -32,53 +32,6 @@ model.add(Embedding(vocab_size, 128, input_length = max_len))
 import gensim
 word2vec = gensim.models.KeyedVectors.load_word2vec_format('GoogleNews-vectors-negative300.bin.gz', binary = True)
 
-<<<<<<< HEAD
-train = pd.read_csv("1.csv")
-change_value_dict = {'판단유보':0,'전혀 사실 아님' : 0,'대체로 사실 아님' : 0.25,'절반의 사실' : 0.5,'대체로 사실' : 0.75, '사실' : 1}
-train = train.replace({'level' : change_value_dict})
-
-x_train = train['title']
-y_train = train['level']
-
-# 모델의 설정
-model = Sequential()
-model.add(Embedding(5000, 100))
-model.add(Dropout(0.5))
-model.add(Conv1D(64, 5, activation='relu'))
-model.add(MaxPooling1D(pool_size=4))
-model.add(LSTM(55))
-model.add(Dense(1))
-model.add(Activation('sigmoid'))
-model.summary()
-  
-# 모델의 컴파일
-model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-  
-# 모델의 실행
-history = model.fit(x_train, y_train, batch_size=100, epochs=5)
-  
-# 테스트 정확도 출력
-print("\n Test Accuracy: %.4f" % (model.evaluate(x_test)[1]))
-  
-# 테스트셋의 오차
-y_vloss = history.history['val_loss']
-  
-# 학습셋의 오차
-y_loss = history.history['loss']
-  
-# 그래프로 표현
-x_len = numpy.arange(len(y_loss))
-plt.plot(x_len, y_vloss, marker='.', c="red", label='Testset_loss')
-plt.plot(x_len, y_loss, marker='.', c="blue", label='Trainset_loss')
-  
-# 그래프에 그리드를 주고 레이블을 표시
-plt.legend(loc='upper right')
-plt.grid()
-plt.xlabel('epoch')
-plt.ylabel('loss')
-plt.show()
-=======
-
 # train['title'] = train['title'].map(lambda x: ' '.join(Mecab.morphs(x)))
 # test['title'] = test['title'].map(lambda x: ' '.join(Mecab.morphs(x)))
 # x_train = train['title'].values
@@ -126,4 +79,3 @@ plt.show()
 # plt.xlabel('epoch')
 # plt.ylabel('loss')
 # plt.show()
->>>>>>> e1c65ed4ae0c584f9d8617056749315002677425
