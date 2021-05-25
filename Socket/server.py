@@ -30,6 +30,7 @@ def binder(client_socket, addr):
                 except Exception as ex:
                     print(ex)
             print("전송완료 %s, 전송량 %d" %(filename, data_transferred))
+            sys.exit()
     except:
         # 접속이 끊기면 except가 발생한다.
         print("except : " , addr);
@@ -42,7 +43,7 @@ server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM);
 server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1);
 # 서버는 복수 ip를 사용하는 pc의 경우는 ip를 지정하고 그렇지 않으면 None이 아닌 ''로 설정한다.
 # 포트는 pc내에서 비어있는 포트를 사용한다. cmd에서 netstat -an | find "LISTEN"으로 확인할 수 있다.
-server_socket.bind(('192.168.0.9', 9090));
+server_socket.bind(('0.0.0.0', 9090));
 # server 설정이 완료되면 listen를 시작한다.
 server_socket.listen();
 try:
